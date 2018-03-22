@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AI Project Week 2 - Search", "Week 2 Search\AI Project Week 2 - Search.csproj", "{12EEDC0F-4113-4871-BFFE-52EC52613D33}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Week 2 - Search", "Week 2 Search\Week 2 - Search.csproj", "{12EEDC0F-4113-4871-BFFE-52EC52613D33}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AI Project Week 4 - Adversarial Search", "Week 4 Adversarial Search\AI Project Week 4 - Adversarial Search.csproj", "{56E0044A-371C-4417-86A2-83B85A2E6836}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Week 4 - Adversarial Search", "Week 4 Adversarial Search\Week 4 - Adversarial Search.csproj", "{56E0044A-371C-4417-86A2-83B85A2E6836}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
