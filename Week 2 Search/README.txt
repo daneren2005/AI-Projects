@@ -1,0 +1,1 @@
+Project for online AI course Week 2
