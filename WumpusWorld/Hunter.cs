@@ -16,9 +16,10 @@ namespace WumpusWorld {
 		public int arrows = 1;
 		public int gold = 0;
 		public int health = 1;
+		public int turns = 0;
 		public int score {
 			get {
-				return -1000 + 1000 * health + gold * 100 + arrows * 10;
+				return -1000 + 1000 * health + gold * 100 + arrows * 10 - turns;
 			}
 		}
 
@@ -27,6 +28,8 @@ namespace WumpusWorld {
 		}
 
 		public void takeAction(Action action) {
+			turns++;
+
 			int directionInt, newDirection;
 			switch(action) {
 				case Action.GO_FORWARD:
