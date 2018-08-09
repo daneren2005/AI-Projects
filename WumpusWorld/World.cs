@@ -1,6 +1,8 @@
-﻿namespace WumpusWorld {
+﻿using static WumpusWorld.Hunter;
+
+namespace WumpusWorld {
 	class World {
-		private Cell[][] cells;
+		public Cell[][] cells;
 		public Hunter hunter;
 
 		public World(int width, int height) {
@@ -18,15 +20,45 @@
 		}
 
 		public void setElement(int x, int y, Element element) {
-			cells[y][x].element = element;
-
 			if(element == Element.HUNTER) {
 				if(hunter.cell != null) {
 					hunter.cell.element = Element.EMPTY;
 				}
 
 				hunter.cell = cells[y][x];
+			} else {
+				cells[y][x].element = element;
 			}
+		}
+
+		public Cell getCell(int x, int y) {
+			if(y < 0) {
+				y = 0;
+			} else if(y >= cells.Length) {
+				y = cells.Length - 1;
+			}
+
+			if(x < 0) {
+				x = 0;
+			} else if(x >= cells[y].Length) {
+				x = cells[y].Length - 1;
+			}
+
+			return cells[y][x];
+		}
+		public Cell getNextCell(Cell cell, Direction direction) {
+			switch(direction) {
+				case Direction.NORTH:
+					return getCell(cell.x, cell.y - 1);
+				case Direction.SOUTH:
+					return getCell(cell.x, cell.y + 1);
+				case Direction.WEST:
+					return getCell(cell.x - 1, cell.y);
+				case Direction.EAST:
+					return getCell(cell.x + 1, cell.y);
+			}
+
+			return cell;
 		}
 
 		public override string ToString() {
@@ -49,7 +81,12 @@
 					}
 					str += " ";
 
-					Element element = cells[y][x].element;
+					Cell cell = cells[y][x];
+					Element element = cell.element;
+					if(cell == hunter.cell) {
+						element = Element.HUNTER;
+					}
+
 					switch(element) {
 						case Element.WUMPUS:
 							str += "W";

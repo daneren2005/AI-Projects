@@ -12,10 +12,25 @@ namespace WumpusWorld {
 			world.setElement(3, 0, Element.GOLD);
 			Console.WriteLine(world);
 
-			Agent agent = new RandomAgent(world.hunter);
+			Hunter hunter = world.hunter;
+			Agent agent = new RandomAgent(hunter);
 
+			int turns = 0;
+			while(hunter.running) {
+				Action nextAction = agent.getNextAction();
+				world.hunter.takeAction(nextAction);
 
-			Console.WriteLine("Final score: " + world.hunter.score);
+				Console.WriteLine("Action: " + nextAction);
+				Console.WriteLine(world);
+
+				turns++;
+			}
+
+			if(hunter.health <= 0) {
+				Console.WriteLine("Died!");
+			}
+
+			Console.WriteLine("Final score: " + world.hunter.score + " (" + turns + " turns)");
 			Console.WriteLine("Press enter to exit");
 			Console.ReadLine();
 		}
