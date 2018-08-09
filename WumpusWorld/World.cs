@@ -60,6 +60,9 @@ namespace WumpusWorld {
 
 			return cell;
 		}
+		public bool isDeadEnd(Cell cell, Direction direction) {
+			return cell == getNextCell(cell, direction);
+		}
 
 		public override string ToString() {
 			string str = "";

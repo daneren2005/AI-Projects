@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Action.cs" />
     <Compile Include="Agents\Agent.cs" />
+    <Compile Include="Agents\KnowledgeBasedAgent.cs" />
     <Compile Include="Agents\RandomAgent.cs" />
     <Compile Include="Cell.cs" />
     <Compile Include="Element.cs" />

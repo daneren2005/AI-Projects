@@ -71,5 +71,30 @@ namespace WumpusWorld {
 					break;
 			}
 		}
+
+		public bool feelBreeze() {
+			for(int i = 0; i < 4; i++) {
+				Cell nextCell = world.getNextCell(cell, (Direction) i);
+				if(nextCell.element == Element.PIT) {
+					return true;
+				}
+			}
+
+			return false;
+		}
+		public bool smellStench() {
+			for(int i = 0; i < 4; i++) {
+				Cell nextCell = world.getNextCell(cell, (Direction) i);
+				if(nextCell.element == Element.WUMPUS) {
+					return true;
+				}
+			}
+
+			return false;
+		}
+
+		public bool isDeadEnd() {
+			return cell == world.getNextCell(cell, direction);
+		}
 	}
 }

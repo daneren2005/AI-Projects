@@ -9,5 +9,9 @@
 			this.y = y;
 			this.element = element;
 		}
+
+		public override string ToString() {
+			return x + ", " + y;
+		}
 	}
 }
